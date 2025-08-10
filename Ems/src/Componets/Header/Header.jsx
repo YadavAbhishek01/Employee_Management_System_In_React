@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div className='header flex items-end justify-between text-2xl'>
+    <div className='header flex items-end justify-between text-2xl '>
         <h1>Hii 👋<br/> Abhishek</h1>
        
         <div className='logoutbtn '>
