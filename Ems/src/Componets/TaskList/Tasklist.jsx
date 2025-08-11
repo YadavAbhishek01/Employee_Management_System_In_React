@@ -1,48 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import AcceptTask from './AcceptTask'
+import Complete from './Complete'
+import FaildTask from './FaildTask'
+import NewTask from './NewTask'
+import Newtask from '../TaskListNumber/Newtask'
 
-const Tasklist = () => {
+const Tasklist = ({LoggedInUSerData}) => {
+
+    const [count,setcount]=useState('')
   return (
-    <div className='tasklist flex  overflow-hidden overflow-x-auto py-5 px-2 gap-5  h-[50%] w-full mt-5 items-center justify-start'>
-      <div className='flex-shrink-0 p-5  h-full w-[300px] bg-red-300 rounded-2xl '>
-        <div className='flex  items-center justify-between '>
-            <h3 className='bg-red-500 text-white px-3 py-1 rounded-2xl'>High</h3>
-            <h4>10-Aug-2025</h4>
-        </div>
-        < p className='text-2xl mt-3 font-semibold '>Make Youtube Video</p>
-        <p className=' mt-2 text-sm '>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita dolore tempore facere eveniet repudiandae quibusdam.</p>
-    </div>
-      <div className='flex-shrink-0 p-5  h-full w-[300px] bg-sky-300 rounded-2xl '>
-        <div className='flex  items-center justify-between '>
-            <h3 className='bg-red-500 text-white px-3 py-1 rounded-2xl'>High</h3>
-            <h4>10-Aug-2025</h4>
-        </div>
-        < p className='text-2xl mt-3 font-semibold '>Make Youtube Video</p>
-        <p className=' mt-2 text-sm '>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita dolore tempore facere eveniet repudiandae quibusdam.</p>
-    </div>
-      <div className='flex-shrink-0 p-5  h-full w-[300px] bg-green-300 rounded-2xl '>
-        <div className='flex  items-center justify-between '>
-            <h3 className='bg-red-500 text-white px-3 py-1 rounded-2xl'>High</h3>
-            <h4>10-Aug-2025</h4>
-        </div>
-        < p className='text-2xl mt-3 font-semibold '>Make Youtube Video</p>
-        <p className=' mt-2 text-sm '>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita dolore tempore facere eveniet repudiandae quibusdam.</p>
-    </div>
-      <div className='flex-shrink-0 p-5  h-full w-[300px] bg-orange-300 rounded-2xl '>
-        <div className='flex  items-center justify-between '>
-            <h3 className='bg-red-500 text-white px-3 py-1 rounded-2xl'>High</h3>
-            <h4>10-Aug-2025</h4>
-        </div>
-        < p className='text-2xl mt-3 font-semibold '>Make Youtube Video</p>
-        <p className=' mt-2 text-sm '>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita dolore tempore facere eveniet repudiandae quibusdam.</p>
-    </div>
-      <div className='flex-shrink-0 p-5  h-full w-[300px] bg-green-600 rounded-2xl '>
-        <div className='flex  items-center justify-between '>
-            <h3 className='bg-red-500 text-white px-3 py-1 rounded-2xl'>High</h3>
-            <h4>10-Aug-2025</h4>
-        </div>
-        < p className='text-2xl mt-3 font-semibold '>Make Youtube Video</p>
-        <p className=' mt-2 text-sm '>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita dolore tempore facere eveniet repudiandae quibusdam.</p>
-    </div>
+    <div className='tasklist flex  overflow-hidden overflow-x-auto px-6 py-10 gap-5  h-[50%] w-full mt-5 items-center justify-star' >
+        {LoggedInUSerData.tasks.map((elem ,i)=>{
+          if(elem.active)
+          {
+            return <AcceptTask  key={i} task={elem} />
+          }
+          if(elem.newTask)
+            {
+              return <NewTask key={i}  task={elem}/>
+            }
+            if(elem.failTask)
+              {
+                return <FaildTask key={i} task={elem} />
+              }
+              if(elem.completed)
+                {
+                  return <Complete  key={i}  task={elem}/>
+                }
+        })}
     </div>
   )
 }

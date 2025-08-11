@@ -1,26 +1,34 @@
 // Employees with tasks
+
 const Employees = [
   {
     id: "emp001",
+    name: "David Lee",
     email: "john.doe@example.com",
     password: "123",
+    taskcount:{
+      active:4,
+      complete:2,
+      fail:1,
+      newtask:1 
+    },
     tasks: [
       {
         title: "Prepare report",
         description: "Prepare report task for upcoming project",
         category: "Finance",
-        date: "2025-08-05T10:00:00Z",
+        date: "2025-08-05",
         status: true,
         active: false,
         newTask: false,
-        completeTask: true,
+        completed: true,
         failTask: false
       },
       {
         title: "Fix bugs",
         description: "Fix bugs task for upcoming project",
         category: "Development",
-        date: "2025-08-06T14:00:00Z",
+        date: "2025-08-06",
         status: false,
         active: true,
         newTask: true,
@@ -31,7 +39,7 @@ const Employees = [
         title: "Write documentation",
         description: "Write documentation task for upcoming project",
         category: "IT",
-        date: "2025-08-03T09:00:00Z",
+        date: "2025-08-03",
         status: false,
         active: false,
         newTask: false,
@@ -42,14 +50,21 @@ const Employees = [
   },
   {
     id: "emp002",
+    name: "Lisa Kim",
     email: "jane.smith@example.com",
     password: "123",
+    taskcount:{
+      active:0,
+      complete:0,
+      fail:0,
+      newtask:0 
+    },
     tasks: [
       {
         title: "Team Feedback",
         description: "Team Feedback task for upcoming project",
         category: "HR",
-        date: "2025-08-08T11:30:00Z",
+        date: "2025-08-08",
         status: true,
         active: false,
         newTask: false,
@@ -60,7 +75,7 @@ const Employees = [
         title: "Optimize database",
         description: "Optimize database task for upcoming project",
         category: "IT",
-        date: "2025-08-06T13:00:00Z",
+        date: "2025-08-06",
         status: false,
         active: true,
         newTask: true,
@@ -71,7 +86,7 @@ const Employees = [
         title: "Client Presentation",
         description: "Client Presentation task for upcoming project",
         category: "Sales",
-        date: "2025-08-04T15:00:00Z",
+        date: "2025-08-04",
         status: false,
         active: false,
         newTask: false,
@@ -82,7 +97,7 @@ const Employees = [
         title: "Update CRM",
         description: "Update CRM task for upcoming project",
         category: "Admin",
-        date: "2025-08-07T10:45:00Z",
+        date: "2025-08-07",
         status: true,
         active: false,
         newTask: false,
@@ -93,16 +108,23 @@ const Employees = [
   },
   {
     id: "emp003",
+    name: "Michael Jordan",
     email: "michael.jordan@example.com",
     password: "123",
+    taskcount:{
+      active:10,
+      complete:3,
+      fail:0,
+      newtask:0 
+    },
     tasks: [
       {
         title: "Draft copy",
         description: "Draft copy task for upcoming project",
         category: "Marketing",
-        date: "2025-08-05T08:15:00Z",
+        date: "2025-08-05",
         status: true,
-        active: false,
+        active: true,
         newTask: false,
         completeTask: true,
         failTask: false
@@ -111,7 +133,7 @@ const Employees = [
         title: "Fix bugs",
         description: "Fix bugs task for upcoming project",
         category: "Development",
-        date: "2025-08-03T17:00:00Z",
+        date: "2025-08-03",
         status: false,
         active: false,
         newTask: false,
@@ -122,7 +144,7 @@ const Employees = [
         title: "Prepare report",
         description: "Prepare report task for upcoming project",
         category: "Finance",
-        date: "2025-08-02T09:30:00Z",
+        date: "2025-08-02",
         status: false,
         active: true,
         newTask: true,
@@ -133,7 +155,7 @@ const Employees = [
         title: "Team Meeting",
         description: "Team Meeting task for upcoming project",
         category: "Management",
-        date: "2025-08-09T12:00:00Z",
+        date: "2025-08-09",
         status: false,
         active: false,
         newTask: false,
@@ -144,14 +166,21 @@ const Employees = [
   },
   {
     id: "emp004",
+    name: "Jane Smith",
     email: "lisa.kim@example.com",
     password: "123",
+    taskcount:{
+      active:2,
+      complete:1,
+      fail:1,
+      newtask:1 
+    },
     tasks: [
       {
         title: "Design new logo",
         description: "Design new logo task for upcoming project",
         category: "Design",
-        date: "2025-08-01T10:00:00Z",
+        date: "2025-08-01",
         status: true,
         active: false,
         newTask: false,
@@ -162,7 +191,7 @@ const Employees = [
         title: "Update CRM",
         description: "Update CRM task for upcoming project",
         category: "Admin",
-        date: "2025-08-05T14:00:00Z",
+        date: "2025-08-05",
         status: false,
         active: true,
         newTask: true,
@@ -173,7 +202,7 @@ const Employees = [
         title: "Fix bugs",
         description: "Fix bugs task for upcoming project",
         category: "Development",
-        date: "2025-08-02T09:00:00Z",
+        date: "2025-08-02",
         status: false,
         active: false,
         newTask: false,
@@ -184,14 +213,21 @@ const Employees = [
   },
   {
     id: "emp005",
+    name: "John Doe",
     email: "david.lee@example.com",
     password: "123",
+    taskcount:{
+      active:2,
+      complete:1,
+      fail:1,
+      newtask:1 
+    },
     tasks: [
       {
         title: "Optimize database",
         description: "Optimize database task for upcoming project",
         category: "IT",
-        date: "2025-08-09T11:00:00Z",
+        date: "2025-08-09",
         status: true,
         active: false,
         newTask: false,
@@ -202,7 +238,7 @@ const Employees = [
         title: "Client Presentation",
         description: "Client Presentation task for upcoming project",
         category: "Sales",
-        date: "2025-08-07T16:30:00Z",
+        date: "2025-08-07",
         status: false,
         active: true,
         newTask: true,
@@ -213,7 +249,7 @@ const Employees = [
         title: "Write documentation",
         description: "Write documentation task for upcoming project",
         category: "IT",
-        date: "2025-08-04T10:15:00Z",
+        date: "2025-08-04",
         status: false,
         active: false,
         newTask: false,
@@ -224,7 +260,7 @@ const Employees = [
         title: "Team Meeting",
         description: "Team Meeting task for upcoming project",
         category: "Management",
-        date: "2025-08-06T09:45:00Z",
+        date: "2025-08-06",
         status: true,
         active: false,
         newTask: false,
@@ -239,6 +275,7 @@ const Employees = [
 const Admin = [
   {
     id: "admin001",
+    name:'Abhishek',
     email: "admin@example.com",
     password: "123"
   }
@@ -246,15 +283,14 @@ const Admin = [
 
 // Save employees and admin to local storage
 export const SetLocalStorage = () => {
-  localStorage.setItem("Employees", JSON.stringify(Employees));
-  localStorage.setItem("Admin",JSON.stringify(Admin))
+  localStorage.setItem("employees", JSON.stringify(Employees));
+  localStorage.setItem("admin",JSON.stringify(Admin))
   
 };
 
 // Get data from local storage
 export const getLocalStorage = () => {
-const EmployeesData=JSON.parse( localStorage.getItem("Employees"))
-const AdminData=JSON.parse(localStorage.getItem("Admin"))
-console.log(EmployeesData);
-console.log(AdminData)
-};
+const EmployeesData=JSON.parse( localStorage.getItem("employees"))
+const AdminData=JSON.parse(localStorage.getItem("admin"))
+    return { Employees, Admin};                  
+}

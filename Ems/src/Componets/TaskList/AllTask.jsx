@@ -1,8 +1,8 @@
 import React from 'react'
 
-const AllTask = () => {
+const AllTask = ({LoggedInUserData}) => {
   return (
-    <div id='alltask' className=' bg-[#1c1c1c] p-3  mt-5 h-50  gap-5 flex  flex-col overflow-auto  rounded-2xl '>
+    <div id='alltask' className=' bg-[#1c1c1c] p-3  mt-5 h-40  gap-5 flex  flex-col overflow-auto  rounded-2xl '>
       <div className='bg-red-400 py-2 px-4 flex items-center justify-between rounded-xl'>
         <h3 className=' text-xl'>Abhishek</h3>
         <h4 className=' text-xl'>Make Ui Design</h4>

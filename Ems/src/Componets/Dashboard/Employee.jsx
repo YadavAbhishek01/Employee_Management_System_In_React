@@ -3,12 +3,12 @@ import Header from '../Header/Header'
 import Newtask from '../TaskListNumber/Newtask'
 import Tasklist from '../TaskList/Tasklist'
 
-const Employee = () => {
+const Employee = ({ LoggedInUSerData }) => {
   return (
-    <div className='p-10 bg-[#1c1c1c] text-white h-screen w-screen'>
-      <Header/>
-      <Newtask/>
-      <Tasklist/>
+    <div className="min-h-screen bg-[#1c1c1c] text-white px-6 py-10 space-y-10">
+      <Header LoggedInUSerData={LoggedInUSerData} />
+      <Newtask LoggedInUSerData={LoggedInUSerData} />
+      <Tasklist LoggedInUSerData={LoggedInUSerData} />
     </div>
   )
 }

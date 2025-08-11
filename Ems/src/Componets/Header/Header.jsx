@@ -1,15 +1,25 @@
-import React from 'react'
+import React from 'react';
 
-const Header = () => {
+const Header = ({ LoggedInUSerData }) => {
+  const logout = () => {
+    localStorage.removeItem('loggedInUSer');
+    window.location.href = '/';
+  };
+
   return (
-    <div className='header flex items-end justify-between text-2xl '>
-        <h1>Hii 👋<br/> Abhishek</h1>
-       
-        <div className='logoutbtn '>
-        <button className='bg-red-500 text-white  text-xl rounded-xl py-2 px-5'>Logout</button>
-        </div>
+    <div className="flex items-center justify-between text-2xl">
+      <h1>
+        Hii 👋<br />
+        {LoggedInUSerData?.name || LoggedInUSerData?.id || 'Admin'}
+      </h1>
+      <button
+        className="bg-red-500 hover:bg-red-600 transition-colors text-white text-xl rounded-xl py-2 px-5"
+        onClick={logout}
+      >
+        Logout
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
