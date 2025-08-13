@@ -1,26 +1,28 @@
 import React, { useState, useEffect, createContext } from 'react'
 import { getLocalStorage, SetLocalStorage } from '../Utils/Localstorage'
-import Employee from '../Componets/Dashboard/Employee';
-import { normalizeModuleId } from 'vite/module-runner';
 
 export const AuthContext = createContext()
 
-let counts=1;
 const AuthProvider = ({ children }) => {
-  const [userData, setUserData] = useState(getLocalStorage());
- 
+  // 1. Get initial data from localStorage
+  const initialData = getLocalStorage()
+
+  // 2. Use state to manage that data
+  const [Employees, setEmployees] = useState(initialData.Employees || [])
+  const [Admin, setAdmin] = useState(initialData.Admin || [])
+
+  // 3. Save to localStorage whenever data changes
   useEffect(() => {
+    SetLocalStorage(Employees, Admin)
+  }, [Employees, Admin])
 
-    const data = getLocalStorage();
-  setUserData(data);
-    console.log(userData)
-  }, []) // Empty dependency array = run once after mount
-
+  // 4. Provide both state and setters through context
   return (
-    <AuthContext.Provider value={userData }>   
+    <AuthContext.Provider value={{ Employees, setEmployees, Admin, setAdmin }}>
       {children}
     </AuthContext.Provider>
   )
 }
 
 export default AuthProvider
+  

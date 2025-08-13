@@ -20,7 +20,7 @@ const Employees = [
         date: "2025-08-05",
         status: true,
         active: false,
-        newTask: false,
+        newTask: true,
         completed: true,
         failTask: false
       },
@@ -42,7 +42,7 @@ const Employees = [
         date: "2025-08-03",
         status: false,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: false,
         failTask: true
       }
@@ -67,7 +67,7 @@ const Employees = [
         date: "2025-08-08",
         status: true,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: true,
         failTask: false
       },
@@ -89,7 +89,7 @@ const Employees = [
         date: "2025-08-04",
         status: false,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: false,
         failTask: true
       },
@@ -100,7 +100,7 @@ const Employees = [
         date: "2025-08-07",
         status: true,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: true,
         failTask: false
       }
@@ -125,7 +125,7 @@ const Employees = [
         date: "2025-08-05",
         status: true,
         active: true,
-        newTask: false,
+        newTask: true,
         completeTask: true,
         failTask: false
       },
@@ -136,7 +136,7 @@ const Employees = [
         date: "2025-08-03",
         status: false,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: false,
         failTask: true
       },
@@ -158,7 +158,7 @@ const Employees = [
         date: "2025-08-09",
         status: false,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: false,
         failTask: true
       }
@@ -183,7 +183,7 @@ const Employees = [
         date: "2025-08-01",
         status: true,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: true,
         failTask: false
       },
@@ -205,7 +205,7 @@ const Employees = [
         date: "2025-08-02",
         status: false,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: false,
         failTask: true
       }
@@ -230,7 +230,7 @@ const Employees = [
         date: "2025-08-09",
         status: true,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: true,
         failTask: false
       },
@@ -252,7 +252,7 @@ const Employees = [
         date: "2025-08-04",
         status: false,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: false,
         failTask: true
       },
@@ -263,7 +263,7 @@ const Employees = [
         date: "2025-08-06",
         status: true,
         active: false,
-        newTask: false,
+        newTask: true,
         completeTask: true,
         failTask: false
       }
@@ -281,16 +281,25 @@ const Admin = [
   }
 ];
 
-// Save employees and admin to local storage
-export const SetLocalStorage = () => {
-  localStorage.setItem("employees", JSON.stringify(Employees));
-  localStorage.setItem("admin",JSON.stringify(Admin))
-  
+
+
+// Default Data (initially used only if nothing is in localStorage)
+export const defaultEmployees = Employees ;
+export const defaultAdmin = Admin;
+
+// Save to localStorage
+export const SetLocalStorage = (employees, admin) => {
+  localStorage.setItem("employees", JSON.stringify(employees));
+  localStorage.setItem("admin", JSON.stringify(admin));
 };
 
-// Get data from local storage
+// Get from localStorage
 export const getLocalStorage = () => {
-const EmployeesData=JSON.parse( localStorage.getItem("employees"))
-const AdminData=JSON.parse(localStorage.getItem("admin"))
-    return { Employees, Admin};                  
-}
+  const EmployeesData = JSON.parse(localStorage.getItem("employees"));
+  const AdminData = JSON.parse(localStorage.getItem("admin"));
+
+  return {
+    Employees: EmployeesData || defaultEmployees,
+    Admin: AdminData || defaultAdmin,
+  };
+};

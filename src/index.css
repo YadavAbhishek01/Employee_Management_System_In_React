@@ -12,3 +12,6 @@
 #alltask::-webkit-scrollbar{
     display: none;
 }
+#empbox::-webkit-scrollbar{
+    display: none;          
+}

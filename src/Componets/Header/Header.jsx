@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Header = ({ LoggedInUSerData }) => {
+const Header = ({ LoggedInUSerData ,setUser}) => {
   const logout = () => {
     localStorage.removeItem('loggedInUSer');
-    window.location.href = '/';
+    setUser('')
   };
 
   return (
